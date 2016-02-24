@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.citext :name
       t.citext :description
-      t.citext :unit_price
+      t.decimal :unit_price
       t.references :merchant, index: true, foreign_key: true
 
       t.timestamps null: false

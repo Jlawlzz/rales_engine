@@ -15,5 +15,18 @@ class Api::V1::CustomersControllerTest < ActionController::TestCase
     assert_equal 'person', first_customer['last_name']
   end
 
+  test '#show' do
+
+    c = Customer.create(first_name: 'guy',
+                    last_name: 'person')
+
+    get :show, format: :json, id: c.id
+
+    customer = JSON.parse(response.body)
+    assert_response :success
+    assert_equal 'guy', customer['first_name']
+    assert_equal 'person', customer['last_name']
+  end
+
 
 end

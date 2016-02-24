@@ -28,7 +28,9 @@ gem 'responders'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
-gem 'simplecov'
+gem 'simplecov', :require => false, :group => :test
+
+gem 'factory_girl_rails'
 
 
 

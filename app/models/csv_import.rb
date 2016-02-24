@@ -33,24 +33,20 @@ class CsvImport < ActiveRecord::Base
   def self.import_items
     file = "vendor/assets/csv/items.csv"
     CSV.foreach(file, :headers => true) do |row|
-      Item.create!(name: row['name'],
-                   description: row['description'],
-                   merchant_id: row['merchant_id'],
-                   unit_price: (row['unit_price'].to_f/100).to_s,
-                   created_at: row['created_at'],
-                   updated_at: row['updated_at'])
+      Item.create!(row.to_h)
+      price = Item.last.unit_price
+      Item.last.update(unit_price: price.insert(-3, '.'))
+      Item.last.update(updated_at: row['updated_at'])
     end
   end
 
   def self.import_invoice_items
     file = "vendor/assets/csv/invoice_items.csv"
     CSV.foreach(file, :headers => true) do |row|
-      InvoiceItem.create!(item_id: row['item_id'],
-                          invoice_id: row['invoice_id'],
-                          quantity: row['quantity'],
-                          unit_price: (row['unit_price'].to_f/100).to_s,
-                          created_at: row['created_at'],
-                          updated_at: row['updated_at'])
+      InvoiceItem.create!(row.to_h)
+      price = InvoiceItem.last.unit_price
+      InvoiceItem.last.update(unit_price: (price/100))
+      InvoiceItem.last.update(updated_at: row['updated_at'])
     end
   end
 

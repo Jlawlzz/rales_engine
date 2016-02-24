@@ -18,10 +18,10 @@ Rails.application.routes.draw do
 
       resources :merchants, only: [:index, :show] do
 
+        get '/revenue', to: 'merchants/revenue#show', module: 'merchants'
+
         resources :items, only: [:index], module: 'merchants'
         resources :invoices, only: [:index], module: 'merchants'
-        resources :revenue, only: [:index], module: 'merchants'
-
 
         collection do
           get :find_all, to: 'merchants/finder#index', module: 'merchants'
