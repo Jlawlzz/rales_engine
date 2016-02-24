@@ -1,9 +1,9 @@
-class Api::V1::Merchants::ItemController < Api::ApiController
+class Api::V1::InvoiceItems::ItemController < Api::ApiController
 
   respond_to :json
 
   def index
-    respond_with Item.find(params[:item_id])
+    respond_with InvoiceItem.find(params[:invoice_item_id]).item
   end
 
 end
