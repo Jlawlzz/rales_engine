@@ -1,4 +1,4 @@
-class Api::V1::Items::ItemsController < Api::ApiController
+class Api::V1::Merchants::ItemsController < Api::ApiController
 
   respond_to :json
 

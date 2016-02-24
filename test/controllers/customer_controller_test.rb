@@ -1,17 +1,18 @@
 require 'test_helper'
 
 class Api::V1::CustomersControllerTest < ActionController::TestCase
-  test "should get index" do
+  test '#index' do
 
-    @controller = Api::V1::CustomersController.new
+    Customer.create(first_name: 'guy',
+                    last_name: 'person')
 
-    Customer.create(first_name: 'jordan', last_name: 'lawler')
-    Customer.create(first_name: 'nadroj', last_name: 'relwal')
+    get :index, format: :json
 
-    get '/api/v1/customers'
-
-    binding.pry
+    customers = JSON.parse(response.body)
+    first_customer = customers.last
     assert_response :success
+    assert_equal 'guy', first_customer['first_name']
+    assert_equal 'person', first_customer['last_name']
   end
 
 
