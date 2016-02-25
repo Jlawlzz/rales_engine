@@ -10,4 +10,8 @@ class Api::V1::Merchants::RevenueController < Api::ApiController
     end
   end
 
+  def index
+    respond_with Merchant.revenue_per_date_all_merchants(params)
+  end
+
 end
