@@ -3,7 +3,7 @@ class Api::V1::InvoiceItems::FinderController < Api::ApiController
   respond_to :json
 
   def show
-    respond_with InvoiceItem.where(invoice_items_params).take
+    respond_with InvoiceItem.where(invoice_items_params).first
   end
 
   def index

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
       resources :customers, only: [:index, :show] do
 
+        get '/favorite_merchant', to: 'customers/favorite_merchant#show', module: 'customers'
         resources :invoices, only: [:index], module: 'customers'
         resources :transactions, only: [:index], module: 'customers'
 
@@ -16,12 +17,17 @@ Rails.application.routes.draw do
         end
       end
 
+      get 'merchants/revenue', to: 'merchants/revenue#index', module: 'merchants'
+
       resources :merchants, only: [:index, :show] do
+
+        get '/revenue', to: 'merchants/revenue#show', module: 'merchants'
+        get '/most_revenue', to: 'merchants/revenue#index', module: 'merchants'
+        get '/favorite_customer', to: 'merchants/customers#show', module: 'merchants'
+        get '/customers_with_pending_invoices', to: 'merchants/customers#index', module: 'merchants'
 
         resources :items, only: [:index], module: 'merchants'
         resources :invoices, only: [:index], module: 'merchants'
-        resources :revenue, only: [:index], module: 'merchants'
-
 
         collection do
           get :find_all, to: 'merchants/finder#index', module: 'merchants'
@@ -68,6 +74,7 @@ Rails.application.routes.draw do
         end
       end
 
+      get 'items/most_revenue', to: 'items/revenue#index', module: 'items'
       resources :items, only: [:index, :show] do
 
         resources :invoice_items, only: [:index], module: 'items'
