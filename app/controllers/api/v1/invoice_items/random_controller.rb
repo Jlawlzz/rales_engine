@@ -1,8 +1,10 @@
 class Api::V1::InvoiceItems::RandomController < Api::ApiController
 
+  respond_to :json
+
   def show
-    offset = rand(InvoiceItems.count)
-    respond_with InvoiceItems.offset(offset).first
+    offset = rand(InvoiceItem.count)
+    respond_with InvoiceItem.offset(offset).first
   end
 
 end

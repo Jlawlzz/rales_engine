@@ -62,7 +62,7 @@ FactoryGirl.define do
     "#{n * 1000}"
   end
 
-  factory :invoice_items do
+  factory :invoice_item do
     item
     invoice
     unit_price
@@ -74,5 +74,5 @@ FactoryGirl.define do
   sequence :quantity do |n|
     n
   end
-  
+
 end

@@ -6,33 +6,32 @@ Rails.application.routes.draw do
 
       resources :customers, only: [:index, :show] do
 
-        get '/favorite_merchant', to: 'customers/favorite_merchant#show', module: 'customers'
+        get '/favorite_merchant', to: 'customers/favorite_merchant#show'
         resources :invoices, only: [:index], module: 'customers'
         resources :transactions, only: [:index], module: 'customers'
 
         collection do
-          get :find, to: 'customers/finder#show', module: 'customers'
-          get :find_all, to: 'customers/finder#index', module: 'customers'
-          get :random, to: 'customers/random#show', module: 'customers'
+          get :find, to: 'customers/finder#show'
+          get :find_all, to: 'customers/finder#index'
+          get :random, to: 'customers/random#show'
         end
       end
 
-      get 'merchants/revenue', to: 'merchants/revenue#index', module: 'merchants'
-
+      get 'merchants/revenue', to: 'merchants/revenue#index'
       resources :merchants, only: [:index, :show] do
 
-        get '/revenue', to: 'merchants/revenue#show', module: 'merchants'
-        get '/most_revenue', to: 'merchants/revenue#index', module: 'merchants'
-        get '/favorite_customer', to: 'merchants/customers#show', module: 'merchants'
-        get '/customers_with_pending_invoices', to: 'merchants/customers#index', module: 'merchants'
+        get '/revenue', to: 'merchants/revenue#show'
+        get '/most_revenue', to: 'merchants/revenue#index'
+        get '/favorite_customer', to: 'merchants/customers#show'
+        get '/customers_with_pending_invoices', to: 'merchants/customers#index'
 
         resources :items, only: [:index], module: 'merchants'
         resources :invoices, only: [:index], module: 'merchants'
 
         collection do
-          get :find_all, to: 'merchants/finder#index', module: 'merchants'
-          get :find, to: 'merchants/finder#show', module: 'merchants'
-          get :random, to: 'merchants/random#show', module: 'merchants'
+          get :find_all, to: 'merchants/finder#index'
+          get :find, to: 'merchants/finder#show'
+          get :random, to: 'merchants/random#show'
         end
       end
 
@@ -41,9 +40,9 @@ Rails.application.routes.draw do
         resources :invoice, only: [:index], module: 'transactions'
 
         collection do
-          get :find, to: 'transactions/finder#show', module: 'transactions'
-          get :find_all, to: 'transactions/finder#index', module: 'transactions'
-          get :random, to: 'transactions/random#show', module: 'transactions'
+          get :find, to: 'transactions/finder#show'
+          get :find_all, to: 'transactions/finder#index'
+          get :random, to: 'transactions/random#show'
         end
       end
 
@@ -56,9 +55,9 @@ Rails.application.routes.draw do
         resources :customer, only: [:index], module: 'invoices'
 
         collection do
-          get :find, to: 'invoices/finder#show', module: 'invoices'
-          get :find_all, to: 'invoices/finder#index', module: 'invoices'
-          get :random, to: 'invoices/random#show', module: 'invoices'
+          get :find, to: 'invoices/finder#show'
+          get :find_all, to: 'invoices/finder#index'
+          get :random, to: 'invoices/random#show'
         end
       end
 
@@ -68,9 +67,9 @@ Rails.application.routes.draw do
         resources :invoice, only: [:index], module: 'invoice_items'
 
         collection do
-          get :find, to: 'invoice_items/finder#show', module: 'invoice_items'
-          get :find_all, to: 'invoice_items/finder#index', module: 'invoice_items'
-          get :random, to: 'invoice_items/random#show', module: 'invoice_items'
+          get :find, to: 'invoice_items/finder#show'
+          get :find_all, to: 'invoice_items/finder#index'
+          get :random, to: 'invoice_items/random#show'
         end
       end
 
@@ -81,9 +80,9 @@ Rails.application.routes.draw do
         resources :merchant, only: [:index], module: 'items'
 
         collection do
-          get :find, to: 'items/finder#show', module: 'items'
-          get :find_all, to: 'items/finder#index', module: 'items'
-          get :random, to: 'items/random#show', module: 'items'
+          get :find, to: 'items/finder#show'
+          get :find_all, to: 'items/finder#index'
+          get :random, to: 'items/random#show'
         end
       end
 

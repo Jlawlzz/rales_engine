@@ -1,4 +1,7 @@
-class Api::V1::Customers::FindController < Api::ApiController
+class Api::V1::Customers::RandomController < Api::ApiController
+
+  respond_to :json
+
 
   def show
     offset = rand(Customer.count)
