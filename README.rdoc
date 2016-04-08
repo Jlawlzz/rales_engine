@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rales Engine Api
 
-Things you may want to cover:
+Project Spec:
+[Rales Spec](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/rails_engine.md)
 
-* Ruby version
+Code that I am proud of:
+[Proud Github](https://github.com/Jlawlzz/rales_engine/blob/master/app/models/merchant.rb)
 
-* System dependencies
+This was my first dive into multi step database querying. Considering the time
+given I am very please with how much logic was kept as ActiveRecord calls and not
+Ruby logic.
 
-* Configuration
+Code that still needs work:
+[Sad Github](https://github.com/Jlawlzz/rales_engine/blob/master/config/routes.rb)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Although my routing turned out relatively clean, there were particular instances
+where I had to break the route nesting pattern I had established. It would have
+been preferable to preserve my established route nesting for readability and understanding.
