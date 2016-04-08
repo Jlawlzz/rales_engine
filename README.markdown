@@ -1,18 +1,18 @@
 == README
 
-Rales Engine Api
+##Rales Engine Api
 
-Project Spec:
+###Project Spec:
 [Rales Spec](https://github.com/turingschool/lesson_plans/blob/master/ruby_03-professional_rails_applications/rails_engine.md)
 
-Code that I am proud of:
+###Code that I am proud of:
 [Proud Github](https://github.com/Jlawlzz/rales_engine/blob/master/app/models/merchant.rb)
 
 This was my first dive into multi step database querying. Considering the time
 given I am very please with how much logic was kept as ActiveRecord calls and not
 Ruby logic.
 
-Code that still needs work:
+###Code that still needs work:
 [Sad Github](https://github.com/Jlawlzz/rales_engine/blob/master/config/routes.rb)
 
 Although my routing turned out relatively clean, there were particular instances
