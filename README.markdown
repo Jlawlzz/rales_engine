@@ -1,5 +1,3 @@
-== README
-
 ##Rales Engine Api
 
 ###Project Spec:
@@ -8,9 +6,7 @@
 ###Code that I am proud of:
 [Proud Github](https://github.com/Jlawlzz/rales_engine/blob/master/app/models/merchant.rb)
 
-This was my first dive into multi step database querying. Considering the time
-given I am very please with how much logic was kept as ActiveRecord calls and not
-Ruby logic.
+Taking the time given for this project into account, I am pleased that I was able to keep my database calls relatively free of Ruby logic allowing for efficient queries.
 
 ###Code that still needs work:
 [Sad Github](https://github.com/Jlawlzz/rales_engine/blob/master/config/routes.rb)
